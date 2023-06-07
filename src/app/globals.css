@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cp-blue: #0197FB;
+  --cp-dark-blue: #131236;
+  --cp-pink: #ED6568;  
+  --cp-green: #CDDB00
+}
