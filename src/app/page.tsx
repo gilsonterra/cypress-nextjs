@@ -60,6 +60,7 @@ export default function Home() {
             product={product}
             actionSlot={
               <button
+                data-cy={`btn-buy-${product.id}`}
                 className="bg-lime-500 text-white font-semibold shadow-lg rounded hover:bg-lime-700 p-4"
                 onClick={() => handleBuyClick(product)}
               >

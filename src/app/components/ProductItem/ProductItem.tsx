@@ -9,7 +9,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, actionSlot }) => {
   const { title, description, price, brand } = product;
 
   return (
-    <div className="flex gap-2 flex-col h-80 border-pink-900 duration-0 border-solid border-2 p-5 hover:bg-pink-300 bg-pink-200 justify-stretch rounded-2xl shadow-lg">
+    <div className="product-item flex gap-2 flex-col h-80 border-pink-900 duration-0 border-solid border-2 p-5 hover:bg-pink-300 bg-pink-200 justify-stretch rounded-2xl shadow-lg">
       <h2 className="text-pink-900 font-semibold text-2xl">
         {title?.toUpperCase()}
       </h2>

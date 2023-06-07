@@ -15,7 +15,10 @@ const Header: React.FC = () => {
       </Link>
       <Link className="flex items-center gap-2" href="/checkout">
         <div className="text-white font-medium">Carrinho</div>
-        <div className="bg-red-700 text-white h-7 w-7 text-sm p-3 flex items-center justify-center rounded-full">
+        <div
+          data-cy="checkout-cart"
+          className="bg-red-700 text-white h-7 w-7 text-sm p-3 flex items-center justify-center rounded-full"
+        >
           {cart?.length <= 99 ? cart?.length : '+99'}
         </div>
       </Link>

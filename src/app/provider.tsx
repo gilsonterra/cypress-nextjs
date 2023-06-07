@@ -4,7 +4,7 @@ import { Dispatch, createContext, useState } from 'react';
 import { Product } from './types/products';
 
 type AppContextValue = {
-  cart?: Product[];
+  cart: Product[];
   setCart?: Dispatch<React.SetStateAction<Product[]>>;
 };
 
