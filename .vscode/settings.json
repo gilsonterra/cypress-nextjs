@@ -1,0 +1,21 @@
+{
+  "editor.codeActionsOnSave": ["source.fixAll.eslint"],
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.insertFinalNewline": true,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "files.associations": {
+    "*.Makefile": "makefile",
+    "*.env*": "dotenv",
+    ".commitlintrc": "json",
+    ".lintstagedrc": "json",
+    ".czrc": "json"
+  },
+  "eslint.options": {
+    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
+  },
+  "editor.tabCompletion": "on"
+}
