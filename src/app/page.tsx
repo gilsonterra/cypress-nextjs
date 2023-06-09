@@ -14,7 +14,7 @@ export default function Home() {
 
   const products = useMemo(
     () =>
-      (productsData as Product[]).filter((item) =>
+      (productsData.products as Product[]).filter((item) =>
         categorySelected ? item.category === categorySelected : item
       ),
     [categorySelected]
@@ -25,20 +25,23 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const categories = (productsData as Product[])?.reduce((acc, current) => {
-      if (!acc.includes(current.category)) {
-        acc.push(current.category);
-      }
+    const categories = (productsData.products as Product[])?.reduce(
+      (acc, current) => {
+        if (!acc.includes(current.category)) {
+          acc.push(current.category);
+        }
 
-      return acc;
-    }, [] as string[]);
+        return acc;
+      },
+      [] as string[]
+    );
 
     setCategories(categories);
   }, []);
 
   return (
     <div className="w-full">
-      <div className="flex flex-row gap-2 justify-center mb-5 flex-wrap">
+      <div className="flex flex-row gap-1 justify-start mb-5 flex-wrap">
         <ButtonMenu
           category="home"
           onClick={() => setCategorySelected('')}
@@ -61,7 +64,7 @@ export default function Home() {
             actionSlot={
               <button
                 data-cy={`btn-buy-${product.id}`}
-                className="bg-lime-500 text-white font-semibold shadow-lg rounded hover:bg-lime-700 p-4"
+                className="bg-pink-950 text-white font-semibold shadow-lg rounded hover:bg-pink-700 p-4"
                 onClick={() => handleBuyClick(product)}
               >
                 Comprar

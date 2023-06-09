@@ -1,4 +1,5 @@
 import { Product } from '@/app/types/products';
+import ImageWithFallback from '../ImageWithFallback/ImageWithFallback';
 
 type ProductItemProps = {
   product: Product;
@@ -6,21 +7,27 @@ type ProductItemProps = {
 };
 
 const ProductItem: React.FC<ProductItemProps> = ({ product, actionSlot }) => {
-  const { title, description, price, brand } = product;
+  const { title, description, price, brand, thumbnail } = product;
 
   return (
-    <div className="product-item flex gap-2 flex-col h-80 border-pink-900 duration-0 border-solid border-2 p-5 hover:bg-pink-300 bg-pink-200 justify-stretch rounded-2xl shadow-lg">
-      <h2 className="text-pink-900 font-semibold text-2xl">
+    <div
+      style={{ minHeight: '600px' }}
+      className="product-item flex gap-2 flex-col flex-1 p-y-52 duration-0 p-5  bg-white justify-stretch rounded-sm shadow-lg items-center"
+    >
+      <h2 className="text-pink-900 font-semibold text-2xl min-h-fit">
         {title?.toUpperCase()}
       </h2>
-      <p className="flex-1 font-serif">{description}</p>
-      <div className="flex flex-col gap-1 justify-between">
-        <div className="flex flex-col justify-center text-white bg-blue-600 w-fit p-1 rounded-md">
+      <div className="font-serif w-full text-start h-24">{description}</div>
+      <div className="flex-1 w-full flex items-center justify-center">
+        <ImageWithFallback image={`${thumbnail}`} description={description} />
+      </div>
+      <div className="flex flex-col gap-1 justify-between  w-full">
+        <div className="flex flex-col font-light text-blue-950 justify-start w-fit p-1 rounded-lg">
           {brand}
         </div>
-        <div className="flex justify-between">
+        <div className="flex w-full justify-between">
           <div className="flex">
-            <div className="font-extrabold text-5xl flex items-end text-pink-900">
+            <div className="font-extrabold text-4xl flex items-end text-pink-900">
               R$ {price}
             </div>
           </div>

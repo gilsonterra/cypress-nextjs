@@ -17,9 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-blue-500`}>
         <AppProvider>
-          <main className="flex min-h-screen flex-col items-center p-10 bg-blue-500 ma-5">
+          <main className="flex min-h-screen flex-col items-center p-4  ma-2">
             <div className="container">
               <Header />
               {children}

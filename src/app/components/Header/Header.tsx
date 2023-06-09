@@ -9,19 +9,25 @@ const Header: React.FC = () => {
   const { cart } = useContext(AppContext);
 
   return (
-    <div className="flex gap-2 justify-between items-center">
+    <div className="flex gap-2 justify-between items-start pt-5">
       <Link href="/">
         <Logo />
       </Link>
-      <Link className="flex items-center gap-2" href="/checkout">
-        <div className="text-white font-medium">Carrinho</div>
-        <div
-          data-cy="checkout-cart"
-          className="bg-red-700 text-white h-7 w-7 text-sm p-3 flex items-center justify-center rounded-full"
-        >
-          {cart?.length <= 99 ? cart?.length : '+99'}
-        </div>
-      </Link>
+      <div className="flex gap-2 text-white ">
+        <Link className="flex items-center gap-2" href="/user">
+          <div className="font-medium">Cadastre-se</div>
+        </Link>
+        |
+        <Link className="flex items-center gap-2" href="/checkout">
+          <div className="font-medium">Carrinho</div>
+          <div
+            data-cy="checkout-cart"
+            className="bg-pink-600 h-7 w-7 text-sm p-3 flex items-center justify-center rounded-full -translate-x-1 -translate-y-4"
+          >
+            {cart?.length <= 99 ? cart?.length : '+99'}
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };
