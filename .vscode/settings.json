@@ -17,5 +17,6 @@
   "eslint.options": {
     "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
   },
-  "editor.tabCompletion": "on"
+  "editor.tabCompletion": "on",
+  "cSpell.language": "en,pt-BR"
 }

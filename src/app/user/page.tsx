@@ -26,9 +26,19 @@ export default function User() {
   const setErrorsMessage = (id: string, message: string) =>
     setErrors((prev) => ({ ...prev, [id]: message }));
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setMessage('');
+
+    await fetch('https://dummyjson.com/products/add', {
+      method: 'POST',
+
+      body: JSON.stringify({
+        name: name,
+        surname: surname,
+        address: address
+      })
+    });
 
     setErrorsMessage('name', !name ? 'Campo Nome é obrigatório!' : '');
     setErrorsMessage(
@@ -56,16 +66,23 @@ export default function User() {
       <form
         className="flex flex-col gap-2 w-1/3 p-4 bg-white rounded-lg"
         onSubmit={handleSubmit}
+        autoComplete="none"
       >
         <h1 className="text-black font-bold text-3xl">Cadastro de usuários</h1>
         <FormField>
           <Label text="Nome" />
-          <Input value={name} onChange={setName} hasError={!!errors?.name} />
+          <Input
+            id="name"
+            value={name}
+            onChange={setName}
+            hasError={!!errors?.name}
+          />
           <ErrorHint text={errors?.name} />
         </FormField>
         <FormField>
           <Label text="Sobrenome" />
           <Input
+            id="surname"
             value={surname}
             onChange={setSurname}
             hasError={!!errors?.surname}
@@ -75,6 +92,7 @@ export default function User() {
         <FormField>
           <Label text="Endereço" />
           <Input
+            id="address"
             value={address}
             onChange={setAddress}
             hasError={!!errors?.address}
@@ -99,7 +117,8 @@ export default function User() {
       </form>
       {message && (
         <div
-          className={`p-4 my-4 w-1/3 font-bold uppercase text-white rounded-lg ${
+          data-cy="message"
+          className={`p-4 my-4 w-1/3 font-bold text-white rounded-lg ${
             typeMessage === 'error' ? 'bg-red-600' : 'bg-green-600'
           }`}
         >
