@@ -11,7 +11,6 @@ describe('Fluxo cadastro de usuário', () => {
     cy.get('[data-cy="surname"]').type('Sobrenome Teste Cypress');
     cy.get('[data-cy="address"]').type('Endereço Teste Cypress');
 
-    cy.wait(600);
     cy.contains('Salvar').click();
 
     cy.get('[data-cy="message"]')
@@ -24,7 +23,6 @@ describe('Fluxo cadastro de usuário', () => {
 
     cy.get('[data-cy="name"]').type('Nome Teste Cypress');
 
-    cy.wait(600);
     cy.contains('Salvar').click();
 
     cy.contains('Campo Sobrenome é obrigatório!').should('have.length', 1);
